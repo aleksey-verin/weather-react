@@ -7,9 +7,9 @@ import Tabs from './Main/Tabs'
 const Main = ({
   weatherData,
   forecastData,
-  currentCity,
+  // currentCity,
   getFavoriteCities,
-  favoriteCities,
+  // favoriteCities,
   handleError,
   error,
   isLoaded,
@@ -21,17 +21,17 @@ const Main = ({
       <Tabs
         weatherData={weatherData}
         forecastData={forecastData}
-        currentCity={currentCity}
+        // currentCity={currentCity}
         getFavoriteCities={getFavoriteCities}
-        favoriteCities={favoriteCities}
+        // favoriteCities={favoriteCities}
         isLoaded={isLoaded}
       />
       <Favorite
-        favoriteCities={favoriteCities}
+        // favoriteCities={favoriteCities}
         getFavoriteCities={getFavoriteCities}
         clearFavoriteCities={clearFavoriteCities}
         requestCity={requestCity}
-        currentCity={currentCity}
+        // currentCity={currentCity}
       />
       <Error handleError={handleError} error={error} />
     </div>

@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import React, { useContext } from 'react'
+import { CitiesContext } from '../../App'
 
 const Favorite = ({
-  favoriteCities,
+  // favoriteCities,
   getFavoriteCities,
   clearFavoriteCities,
   requestCity,
-  currentCity,
+  // currentCity,
 }) => {
+  const { currentCity, favoriteCities } = useContext(CitiesContext)
   const showFromFavorite = (city) => {
     if (city !== currentCity) {
       requestCity(city)

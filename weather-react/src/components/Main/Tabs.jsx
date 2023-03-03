@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { CitiesContext } from '../../App'
 import {
   convertKelvinToCelsius,
   convertTimestampToDayAndMonth,
@@ -10,11 +11,12 @@ import {
 const Tabs = ({
   weatherData,
   forecastData,
-  currentCity,
+  // currentCity,
   getFavoriteCities,
-  favoriteCities,
+  // favoriteCities,
   isLoaded,
 }) => {
+  const { currentCity, favoriteCities } = useContext(CitiesContext)
   const { cityName, feelsLike, temp, description, icon, sunrise, sunset, timezone } = weatherData
 
   const tabs = {

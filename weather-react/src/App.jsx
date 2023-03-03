@@ -1,8 +1,10 @@
-import { React, useEffect, useState } from 'react'
+import { createContext, React, useEffect, useState } from 'react'
 import './App.css'
 import Main from './components/Main'
 import Search from './components/Search'
 import fetchRequest from './services/request'
+
+export const CitiesContext = createContext(null)
 
 const App = () => {
   const [currentCity, setCurrentCity] = useState(
@@ -73,18 +75,20 @@ const App = () => {
     <div className='wrapper'>
       <div className='container'>
         <Search requestCity={requestCity} handleError={handleError} />
-        <Main
-          weatherData={weatherData}
-          forecastData={forecastData}
-          currentCity={currentCity}
-          getFavoriteCities={getFavoriteCities}
-          favoriteCities={favoriteCities}
-          handleError={handleError}
-          error={error}
-          isLoaded={isLoaded}
-          clearFavoriteCities={clearFavoriteCities}
-          requestCity={requestCity}
-        />
+        <CitiesContext.Provider value={{ currentCity, favoriteCities }}>
+          <Main
+            weatherData={weatherData}
+            forecastData={forecastData}
+            // currentCity={currentCity}
+            getFavoriteCities={getFavoriteCities}
+            // favoriteCities={favoriteCities}
+            handleError={handleError}
+            error={error}
+            isLoaded={isLoaded}
+            clearFavoriteCities={clearFavoriteCities}
+            requestCity={requestCity}
+          />
+        </CitiesContext.Provider>
       </div>
     </div>
   )
